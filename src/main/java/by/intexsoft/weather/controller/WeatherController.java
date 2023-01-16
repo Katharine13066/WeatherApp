@@ -25,7 +25,9 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    // http://localhost:8080/weather
+    /**
+        http://localhost:8080/weather
+     */
     @PostMapping(value = "/weather")
     public ResponseEntity<?> save(@RequestBody Weather weather) {
         try{
@@ -36,10 +38,12 @@ public class WeatherController {
         }
     }
 
-    //http://localhost:8080/weather
-    //http://localhost:8080/weather?date=1986-01-01
-    //http://localhost:8080/weather?date=1986-01-01&&city=Nashville
-    //http://localhost:8080/weather?date=1986-01-01&&city=Nashville,London
+    /**
+        http://localhost:8080/weather
+        http://localhost:8080/weather?date=1986-01-01
+        http://localhost:8080/weather?date=1986-01-01&&city=Nashville
+        http://localhost:8080/weather?date=1986-01-01&&city=Nashville,London
+     */
     @GetMapping(value = "/weather")
     public ResponseEntity<List<WeatherDto>> findAll(@RequestParam(value = "date", required = false)LocalDate date,
                                                  @RequestParam(value = "cityList", required = false)List<String> cityList) {
@@ -63,7 +67,9 @@ public class WeatherController {
         }
     }
 
-    //http://localhost:8080/weather/1
+    /**
+        http://localhost:8080/weather/1
+     */
     @GetMapping(value = "/weather/{id}")
     public ResponseEntity<WeatherDto> findById(@PathVariable(name = "id") Integer id) {
         try{
