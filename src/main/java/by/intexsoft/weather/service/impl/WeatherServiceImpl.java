@@ -37,7 +37,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public List<WeatherDto> findByCity(List<String> cityList) {
-        return weatherMapper.toDtos(weatherRepository.findByCityIn(cityList));
+        return weatherMapper.toDtos(weatherRepository.findByCityIgnoreCaseIn(cityList));
     }
 
     @Override

@@ -11,5 +11,5 @@ public interface WeatherRepository extends JpaRepository<Weather, Integer> {
 
     List<Weather> findByDate(LocalDate date);
 
-    List<Weather> findByCityIn(List<String> cityList);
+    List<Weather> findByCityIgnoreCaseIn(List<String> cityList);
 }
